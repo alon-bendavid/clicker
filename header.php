@@ -20,15 +20,20 @@ require_once("classes/User.php");
     <title>Clicker</title>
     <link rel="stylesheet" href="css\style.css">
     <!-- <script src="https://kit.fontawesome.com/e861973d30.js" crossorigin="anonymous"></script> -->
+    <?php if ($_SERVER['REQUEST_URI'] == "/clicker/clicker.php") {  ?>
+        <script defer src="script.js"></script>
+    <?php } else { ?>
+        <script defer src="clickerScript.js"></script>
 
-    <script defer src="script.js"></script>
-
+    <?php } ?>
 </head>
 <header>
     <nav>
         <ul>
             <!-- <a href="todolist.php">To Do List</a> -->
             <h1>Clicker</h1>
+            <a href="clicker.php">clicker</a>
+
             <a href="connexion.php">connect</a>
             <a href="index.php">Sign Up</a>
 
