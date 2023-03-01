@@ -22,7 +22,9 @@ require_once("classes/User.php");
     <!-- <script src="https://kit.fontawesome.com/e861973d30.js" crossorigin="anonymous"></script> -->
     <?php if ($_SERVER['REQUEST_URI'] == "/clicker/clicker.php") {  ?>
         <script defer src="clickerScript.js"></script>
-        <?php echo "its working"; ?>
+    <?php }  ?>
+    <?php if ($_SERVER['REQUEST_URI'] == "/clicker/connexion.php") {  ?>
+        <script defer src="scriptCon.js"></script>
     <?php } else { ?>
         <script defer src="script.js"></script>
     <?php } ?>
