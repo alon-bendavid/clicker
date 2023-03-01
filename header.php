@@ -21,12 +21,12 @@ require_once("classes/User.php");
     <link rel="stylesheet" href="css\style.css">
     <!-- <script src="https://kit.fontawesome.com/e861973d30.js" crossorigin="anonymous"></script> -->
     <?php if ($_SERVER['REQUEST_URI'] == "/clicker/clicker.php") {  ?>
-        <script defer src="clickerScript.js"></script>
+        <script defer src="./js/clickerScript.js"></script>
     <?php }  ?>
     <?php if ($_SERVER['REQUEST_URI'] == "/clicker/connexion.php") {  ?>
-        <script defer src="scriptCon.js"></script>
-    <?php } else { ?>
-        <script defer src="script.js"></script>
+        <script defer src="./js/scriptCon.js"></script>
+    <?php } else if ($_SERVER['REQUEST_URI'] == "/clicker/index.php") { ?>
+        <script defer src="./js/script.js"></script>
     <?php } ?>
 </head>
 <header>
