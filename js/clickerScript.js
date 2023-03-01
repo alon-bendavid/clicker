@@ -2,14 +2,15 @@ let speed = 1000; // this value set the rate of which the function will be inter
 let count = 0;
 
 let counter = document.getElementById("counter");
-const bonus = document.querySelectorAll("button");
+const bonusBtns = document.querySelectorAll("button");
 
 //event listenr to catch the click of the button and then recalculate of the count
-bonus.forEach(btn => {
+ bonusBtns.forEach(btn => {
     btn.addEventListener("click", ()=>{
-    let newCount =   raiseBonus (btn.value);
+    let newSpeed =   raiseBonus (btn.value);
         //  count += intBtn*10;
-        console.log(newCount);
+    return newSpeed;
+        // console.log(newCount);
     } )
 });
   
@@ -18,7 +19,7 @@ bonus.forEach(btn => {
 //clicked btn value enter as a permater and raise the count by multiply the value
 function raiseBonus (btnValue){
     parseInt(btnValue);
-    return count += btnValue*10;
+    return speed -= speed * (btnValue*10)/100;
 }
 
 
@@ -32,6 +33,6 @@ count += 5;
 counter.innerHTML =  count;
 
 }
+setInterval(TimeRaiseCount,speed);
 
-setInterval(TimeRaiseCount,1000);
-
+console.log(speed);
