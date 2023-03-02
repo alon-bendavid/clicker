@@ -3,6 +3,10 @@ include_once("header.php");
 ?>
 
 <body>
+    <?php if (isset($_SESSION["user"])) { ?>
+        <input id="player" type="hidden" value='<?php echo $_SESSION["user"]["login"]; ?>'>
+
+    <?php } ?>
     <h4 id="message"> </h4>
     <h2 id="counter">0</h2>
     <button id="laborClick">Click to gain credit!</button>

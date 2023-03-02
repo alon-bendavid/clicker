@@ -1,14 +1,13 @@
+let playerName = document.getElementById("player").value;
+console.log(playerName);
 // let speed =  1000; 
+let interval;
+//set the player OBJ
 let player = {
+user:  playerName,   
 speed:   parseInt(localStorage.getItem('speed')) || 1000, 
 count:  parseInt(localStorage.getItem('count')) || 0,  
 }
-// localStorage.setItem("playerData", JSON.stringify(player));
-// let speed = parseInt(localStorage.getItem('speed')) || 1000; 
-// console.log(speed);// set the interval refresh rate
-// let count = 0;
-// let counter = document.getElementById("counter");
-
 let message = document.getElementById("message");
 
 //prices
@@ -19,8 +18,8 @@ let price3 = 30;
 
 //increasces the speed by precantge - bonus advantage
 let speed1 = 0.1;
-let speed2 = 0.3;
-let speed3 = 0.5;
+let speed2 = 0.15;
+let speed3 = 0.2;
 
 //buttons selcotrs
 const delCredit =document.getElementById("delCredit");
@@ -43,11 +42,13 @@ laborClick.addEventListener("click",()=>{
 counter.innerHTML =   player.count;
 
 })
+//Delte the credit
 delCredit.addEventListener("click",()=>{
     player.count = 0;
 counter.innerHTML =   player.count;
 
 })
+//Delte the speed bonus
 delSpeed.addEventListener("click",()=>{
     player.speed = 0;
 localStorage.setItem('speed', player.speed.toString());
@@ -61,19 +62,22 @@ location.reload();
 ///////bonus 1/////////
 bonus1.addEventListener("click",()=>{
     if (player.count>=price1){
-        message.innerHTML = "You just got yourself an extra- "+speed1*100+"% speed advantge "
+        message.innerHTML = "You just got yourself another- "+speed1*100+"% speed advantge "
         player.count = player.count-price1;
-//         console.log(count);
-clearInterval(interval);
-speedTime(speed1);
- interval =  setInterval(gameLoop,player.speed);
+  
+        clearInterval(interval);
+        speedTime(speed1);
+        interval =  setInterval(gameLoop,player.speed);
 
-localStorage.setItem('speed', player.speed.toString());
+        localStorage.setItem('speed', player.speed.toString());
 
-console.log(player.speed);
-    }else{
-        message.innerHTML = "Not enough credit!"
-    }
+        console.log(player.speed);
+        setTimeout(() => {
+            message.innerHTML = "";
+        }, 2000);
+            }else{
+                message.innerHTML = "Not enough credit!"
+            }
 })
 ///////bonus 2/////////
 bonus2.addEventListener("click",()=>{
@@ -84,13 +88,15 @@ bonus2.addEventListener("click",()=>{
         console.log(player.count);
         clearInterval(interval);
         speedTime(speed2);
-     interval =  setInterval(gameLoop,player.speed)
-localStorage.setItem('speed', player.speed);
+        interval =  setInterval(gameLoop,player.speed)
+        localStorage.setItem('speed', player.speed);
+        setTimeout(() => {
+            message.innerHTML = "";
+        }, 2000);
 
-
-    }else{
-        message.innerHTML = "Not enough credit!"
-    }
+            }else{
+                message.innerHTML = "Not enough credit!"
+            }
 })
 ///////bonus 3/////////
 bonus3.addEventListener("click",()=>{
@@ -102,12 +108,14 @@ bonus3.addEventListener("click",()=>{
         clearInterval(interval);
         speedTime(speed3);
        interval =  setInterval(gameLoop,player.speed)
-localStorage.setItem('speed', player.speed.toString());
+        localStorage.setItem('speed', player.speed.toString());
+        setTimeout(() => {
+        message.innerHTML = "";
+        }, 2000);
 
-
-    }else{
-        message.innerHTML = "Not enough credit!"
-    }  
+        }else{
+            message.innerHTML = "Not enough credit!"
+        }  
     
     
 })
@@ -116,29 +124,20 @@ localStorage.setItem('speed', player.speed.toString());
 //keep update the value with 1 point increacment
 function gameLoop(){
 player.count += 1;
-
 counter.innerHTML =  player.count;
-// console.log(player.speed);
-// console.log(player.count);
-
 localStorage.setItem('count', player.count.toString());
 
 }
-// function speedTime(precenatge){
-//     speed -= precenatge*speed;
-   
-// }
 
 function speedTime(precenatge){
   return  player.speed -= precenatge*player.speed;
    
 }
-let interval;
 //Starting the game
 if(!interval){
     interval = setInterval(gameLoop,player.speed);
     
 }
 
-localStorage.setItem('speed', player.speed.toString());
+localStorage.setItem('speed', player.speed.toString());//reset the speed
 
