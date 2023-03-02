@@ -8,6 +8,9 @@ user:  playerName,
 speed:   parseInt(localStorage.getItem('speed')) || 1000, 
 count:  parseInt(localStorage.getItem('count')) || 0,  
 }
+localStorage.setItem(playerName, JSON.stringify(player));
+let storedPlayer = JSON.parse(localStorage.getItem(playerName));
+console.log("storedPlayer.speed"+storedPlayer.speed);
 let message = document.getElementById("message");
 
 //prices
@@ -39,7 +42,7 @@ bonus3.innerHTML = "Price: "+ price3 + "<br>Speed increase by "+speed3*100+"%";
 // increase credit by menual clicking
 laborClick.addEventListener("click",()=>{
      player.count += 1;
-counter.innerHTML =   player.count;
+counter.innerHTML =   "Bugette Created: "+ player.count;
 
 })
 //Delte the credit
@@ -62,7 +65,7 @@ location.reload();
 ///////bonus 1/////////
 bonus1.addEventListener("click",()=>{
     if (player.count>=price1){
-        message.innerHTML = "You just got yourself another- "+speed1*100+"% speed advantge "
+        message.innerHTML = "You just got yourself- "+speed1*100+"% speed advantge "
         player.count = player.count-price1;
   
         clearInterval(interval);
@@ -82,7 +85,7 @@ bonus1.addEventListener("click",()=>{
 ///////bonus 2/////////
 bonus2.addEventListener("click",()=>{
     if (player.count>=price2){
-        message.innerHTML = "You just got yourself an extra- "+speed2*100+"% speed advantge "
+        message.innerHTML = "You just got yourself- "+speed2*100+"% speed advantge "
 
         player.count = player.count-price2;
         console.log(player.count);
@@ -101,7 +104,7 @@ bonus2.addEventListener("click",()=>{
 ///////bonus 3/////////
 bonus3.addEventListener("click",()=>{
     if (player.count>=price3){
-        message.innerHTML = "You just got yourself an extra- "+speed3*100+"% speed advantge "
+        message.innerHTML = "You just got yourself- "+speed3*100+"% speed advantge "
 
         player.count = player.count-price3;
         console.log(player.count);
@@ -124,7 +127,7 @@ bonus3.addEventListener("click",()=>{
 //keep update the value with 1 point increacment
 function gameLoop(){
 player.count += 1;
-counter.innerHTML =  player.count;
+counter.innerHTML = "Bugette Created: "+ player.count;
 localStorage.setItem('count', player.count.toString());
 
 }
