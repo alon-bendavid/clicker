@@ -54,3 +54,11 @@ form button{
   width: 50%; 
   
 }
+.btn_div{
+display: flex;
+background-color: aquamarine;
+}
+button{
+  padding: 0.5rem 2rem;
+  margin: 1rem;
+}
