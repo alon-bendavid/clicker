@@ -2,37 +2,70 @@ let speed = 1000; // this value set the rate of which the function will be inter
 let count = 0;
 
 let counter = document.getElementById("counter");
-const bonusBtns = document.querySelectorAll("button");
+//increasces the speed by precantge
+let value1 = 0.3;
+let value2 = 0.5;
+let value3 = 0.6;
 
-//event listenr to catch the click of the button and then recalculate of the count
- bonusBtns.forEach(btn => {
-    btn.addEventListener("click", ()=>{
-    let newSpeed =   raiseBonus (btn.value);
-        //  count += intBtn*10;
-    return newSpeed;
-        // console.log(newCount);
-    } )
-});
-  
+//buttons selcotrs
+const bonus1 = document.getElementById("bonus1");
+const bonus2 = document.getElementById("bonus2");
+const bonus3 = document.getElementById("bonus3");
 
-  
-//clicked btn value enter as a permater and raise the count by multiply the value
-function raiseBonus (btnValue){
-    parseInt(btnValue);
-    return speed -= speed * (btnValue*10)/100;
-}
-
+//onclick event listeners
+bonus1.addEventListener("click",()=>{
+    clearInterval(interval);
+    speedTime(value1);
+    setInterval(gameLoop,speed)
+})
+bonus2.addEventListener("click",()=>{
+    clearInterval(interval);
+    speedTime(value2);
+    setInterval(gameLoop,speed)
+})
+bonus3.addEventListener("click",()=>{
+    clearInterval(interval);
+    speedTime(value3);
+    setInterval(gameLoop,speed)
+})
 
 
 //raise the value constenetly by the seconds
-function TimeRaiseCount(){
+function gameLoop(){
 //    let time = new Date();
   
 // seconds = time.getSeconds();
-count += 5;
+count += 1;
 counter.innerHTML =  count;
+console.log(speed);
 
 }
-setInterval(TimeRaiseCount,speed);
+let interval = setInterval(gameLoop,speed);
+// let interval = setInterval(gameLoop,speed);
 
-console.log(speed);
+
+
+function speedTime(precenatge){
+    speed -= precenatge*speed;
+   
+}
+
+
+//////////////////////////////////////////////////////////////DEAD CODE///////////////////////////////////////
+//event listenr to catch the click of the button and then recalculate of the count
+// bonusBtns.forEach(btn => {
+//     btn.addEventListener("click", ()=>{
+//     let newSpeed =  raiseBonus (btn.value);
+//         //  count += intBtn*10;
+//     return newSpeed;
+//         // console.log(newCount);
+//     } )
+// });
+  
+
+  
+// //clicked btn value enter as a permater and raise the count by multiply the value
+// function raiseBonus (btnValue){
+//     parseInt(btnValue);
+//     console.log(speed -= speed * (btnValue*10)/100); 
+// }
