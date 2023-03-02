@@ -39,6 +39,7 @@ require_once("classes/User.php");
             <a href="connexion.php">connect</a>
             <a href="index.php">Sign Up</a>
 
+
             <div>
                 <?php if (isset($_SESSION["user"])) { ?>
                     <?php echo "<h4  >Welcome </h4>"; ?>
@@ -47,11 +48,8 @@ require_once("classes/User.php");
                     <a id="disconnectBtn" href="php\disconnect.php">disconnect</a>
 
                 <?php
-                } else { ?>
-                    <!-- <a class="loginBtn" href="">login</a> -->
+                }  ?>
 
-                <?php
-                } ?>
             </div>
         </ul>
     </nav>
