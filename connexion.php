@@ -8,9 +8,9 @@ require_once("header.php");
     <!-- //////////////////connexion\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="section connection_form">
 
-        <h2>Sign in!</h2>
-        <h3 id="conMsg"></h3>
         <form id="connexion">
+            <h2>Sign in!</h2>
+            <h3 id="conMsg"></h3>
             <input type="text" placeholder="username" name="loginUsr" required><br>
 
             <input type="password" placeholder="password" name="loginPwd" required><br>

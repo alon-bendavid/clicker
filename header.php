@@ -33,7 +33,7 @@ require_once("classes/User.php");
     <nav>
         <ul>
             <!-- <a href="todolist.php">To Do List</a> -->
-            <h1>Clicker</h1>
+            <h1>Le Boulanger</h1>
             <a href="clicker.php">clicker</a>
 
             <a href="connexion.php">connect</a>

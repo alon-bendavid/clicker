@@ -128,7 +128,7 @@ bonus3.addEventListener("click",()=>{
 //keep update the value with 1 point increacment
 function gameLoop(){
 player.count += 1;
-counter.innerHTML = "Bugette Created: "+ player.count;
+counter.innerHTML = "Baguettes Created: "+ player.count;
 // localStorage.setItem('count', player.count.toString());
 // localStorage.setItem(playerName, JSON.stringify(player));
 localStorage.setItem(playerName, JSON.stringify(player));

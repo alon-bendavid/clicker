@@ -5,11 +5,14 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    color: rgb(0, 0, 0)
+    color:#194756;
     
 }
 .counter{
-  color: rgb(255, 99, 38);
+  color: rgb(49, 24, 71);
+}
+#signMsg{
+  margin-bottom: 1rem;
 }
 header{
   /* background-color: rgb(7, 226, 255); */
@@ -18,13 +21,15 @@ padding: 0.5rem;
 margin-bottom: 3rem;
 }
 body{
+  background-color: aquamarine;
   /* background-image: ; */
-  background-image: url("../media/clicker.png");
-  background-repeat: no-repeat;
+  background-image: url("../media/clicker.jpg");
+  background-size: cover;
+  min-height: 100vh;
 
-  background-size: 100vh;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* justify-content: end; */
   flex-direction: column;
   align-items: center;
 }
@@ -48,27 +53,70 @@ a{
   text-decoration: none;
 }
 form{
+  position: absolute;
+  top: 12rem;
+  right: 12rem;
+  padding: 2rem;
 /* gap: 1rem; */
+background-color: rgb(238, 238, 238);
 display: flex;
 flex-direction: column;
 align-items: center;
+
+border-radius: 15px;
 }
-form input{
+/* form input{
 padding: 0.2rem;  
 margin: 0.7rem;
-}
-form button{
+} */
+/* form button{
   padding: 0.4rem; 
   width: 50%; 
   
-}
+} */
 .btn_div{
 display: flex;
+gap: 1rem;
 /* background-color: aquamarine; */
 }
-button{
-  padding: 0.5rem 2rem;
-  margin: 1rem;
-font-size: large;
-font-weight: 600;
+button {
+  background-color:#f5ab4a;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #14c8e7;
+}
+h2{
+  margin-bottom: 2rem;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+#game{
+  border-radius: 15px;
+  background-color: rgba(248,248,249,.6);
+  backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 45rem; */
+  margin-top: 15%;
+  /* position: absolute;
+  top: 12rem;
+  right: 12rem; */
+  padding: 2rem;
+  gap: 1rem;
 }
