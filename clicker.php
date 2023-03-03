@@ -16,8 +16,8 @@ include_once("header.php");
         <button id="bonus3"> </button>
     </div>
     <?php if (isset($_SESSION["user"])) { ?>
-        <button id="delCredit">Delete Credit</button>
-        <button id="delSpeed">Delete Speed Bonus</button>
+        <!-- <button id="delCredit">Delete Credit</button> -->
+        <button id="delSpeed">Delete Progress</button>
 
     <?php
     }  ?>

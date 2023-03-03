@@ -9,10 +9,10 @@
     
 }
 .counter{
-  color: rgb(161, 255, 38);
+  color: rgb(255, 99, 38);
 }
 header{
-  background-color: rgb(194, 79, 79);
+  /* background-color: rgb(7, 226, 255); */
   width: 100%;
 padding: 0.5rem;
 margin-bottom: 3rem;
@@ -22,7 +22,7 @@ body{
   background-image: url("../media/clicker.png");
   background-repeat: no-repeat;
 
-  background-size: cover;
+  background-size: 100vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -69,4 +69,6 @@ display: flex;
 button{
   padding: 0.5rem 2rem;
   margin: 1rem;
+font-size: large;
+font-weight: 600;
 }

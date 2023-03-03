@@ -3,16 +3,17 @@ console.log(playerName);
 // let speed =  1000; 
 let interval;
 //set the player OBJ
-let player = JSON.parse(localStorage.getItem(playerName)) || {
-    speed: 1000,
-    count: 0
-  };
-  
-// let storedPlayer = JSON.parse(localStorage.getItem(playerName));
-// console.log("storedPlayer.speed"+storedPlayer.speed);
+let player = {
+user:  playerName,   
+speed:   parseInt(localStorage.getItem('speed')) || 1000, 
+count:  parseInt(localStorage.getItem('count')) || 0,  
+}
+localStorage.setItem(playerName, JSON.stringify(player));
+let storedPlayer = JSON.parse(localStorage.getItem(playerName));
+console.log("storedPlayer.speed"+storedPlayer.speed);
 let message = document.getElementById("message");
 
-//prices
+//Set the credit price
 let price1 = 5;
 let price2 = 25;
 let price3 = 30;
@@ -24,7 +25,7 @@ let speed2 = 0.15;
 let speed3 = 0.2;
 
 //buttons selcotrs
-// const delCredit =document.getElementById("delCredit");
+const delCredit =document.getElementById("delCredit");
 const delSpeed =document.getElementById("delSpeed");
 
 const laborClick = document.getElementById("laborClick");
@@ -45,18 +46,16 @@ counter.innerHTML =   "Bugette Created: "+ player.count;
 
 })
 //Delte the credit
-// delCredit.addEventListener("click",()=>{
-//     player.count = 0;
-// counter.innerHTML =   player.count;
+delCredit.addEventListener("click",()=>{
+    player.count = 0;
+counter.innerHTML =   player.count;
 
-// })
-//Delete the progress
+})
+//Delte the speed bonus
 delSpeed.addEventListener("click",()=>{
-    player.speed = 1000;
-player.count = 0;
-localStorage.setItem(playerName, JSON.stringify(player));
-
-location.reload()
+    player.speed = 0;
+localStorage.setItem('speed', player.speed.toString());
+location.reload();
 
 // counter.innerHTML =   player.count;
 
@@ -75,7 +74,7 @@ bonus1.addEventListener("click",()=>{
 
         localStorage.setItem('speed', player.speed.toString());
 
-        // console.log(player.speed);
+        console.log(player.speed);
         setTimeout(() => {
             message.innerHTML = "";
         }, 2000);
@@ -129,9 +128,7 @@ bonus3.addEventListener("click",()=>{
 function gameLoop(){
 player.count += 1;
 counter.innerHTML = "Bugette Created: "+ player.count;
-// localStorage.setItem('count', player.count.toString());
-// localStorage.setItem(playerName, JSON.stringify(player));
-localStorage.setItem(playerName, JSON.stringify(player));
+localStorage.setItem('count', player.count.toString());
 
 }
 
@@ -145,5 +142,5 @@ if(!interval){
     
 }
 
-// localStorage.setItem('speed', player.speed.toString());//reset the speed
+localStorage.setItem('speed', player.speed.toString());//reset the speed
 
