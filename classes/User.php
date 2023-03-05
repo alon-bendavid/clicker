@@ -13,9 +13,9 @@ class User
         $this->login = $login;
 
 
-        $this->conn = new mysqli("localhost", "root", "", "clicker");
+        // $this->conn = new mysqli("localhost", "root", "", "clicker");
         //DB connection to site 
-        // $this->conn = new mysqli("localhost", "ToDoList123", "1M2y5es3~", "ben-david-alon_to_do_list");
+        $this->conn = new mysqli("localhost", "clickerTycon", "clickerTycon1", "ben-david-alon_clicker");
 
         return $this->conn;
     }
