@@ -12,7 +12,7 @@ include_once("header.php");
         <?php } ?>
         <h4 id="message"> </h4>
         <h2 id="counter" class="counter">0</h2>
-        <button id="laborClick">Click to gain credit!</button>
+        <button id="laborClick">Create a baguette!</button>
         <div class="btn_div">
             <button id="bonus1"> </button>
             <button id="bonus2"> </button>
