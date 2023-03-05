@@ -1,8 +1,10 @@
 <?php
 include_once("header.php");
+
 ?>
 
 <body>
+    </audio>
     <div id="game">
         <?php if (isset($_SESSION["user"])) { ?>
             <input id="player" type="hidden" value='<?php echo $_SESSION["user"]["login"]; ?>'>
@@ -23,6 +25,10 @@ include_once("header.php");
         <?php
         }  ?>
     </div>
+    <button id="startSound"> <img src="media\speaker.png" alt="" id="sound"></button>
+    <button id="stopSound"> <img src="media\noSound.png" alt="" id="noSound"></button>
+
+    <audio id="audio" src="media\Joe.mp3"></audio>
 </body>
 
 </html>

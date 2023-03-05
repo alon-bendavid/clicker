@@ -1,3 +1,23 @@
+//music interactions
+const music = document.getElementById('audio');
+
+const stopSound = document.getElementById("stopSound");
+const startSound = document.getElementById("startSound");
+startSound.addEventListener("click",()=>{
+    music.play();
+    startSound.style.display = 'none';
+    stopSound.style.display = 'block';
+
+})
+stopSound.addEventListener("click",()=>{
+    music.pause();
+    stopSound.style.display = 'none';
+    startSound.style.display = 'block';
+
+
+})
+// document.getElementById("audio").play;
+
 let playerName = document.getElementById("player").value;
 console.log(playerName);
 // let speed =  1000; 
@@ -13,15 +33,15 @@ let player = JSON.parse(localStorage.getItem(playerName)) || {
 let message = document.getElementById("message");
 
 //prices
-let price1 = 5;
-let price2 = 25;
+let price1 = 5 ;
+let price2 = 15;
 let price3 = 30;
 
 
 //increasces the speed by precantge - bonus advantage
-let speed1 = 0.1;
-let speed2 = 0.15;
-let speed3 = 0.2;
+let speed1 = 0.15;
+let speed2 = 0.40;
+let speed3 = 0.60;
 
 //buttons selcotrs
 // const delCredit =document.getElementById("delCredit");
@@ -41,7 +61,7 @@ bonus3.innerHTML = "Price: "+ price3 + "<br>Speed increase by "+speed3*100+"%";
 // increase credit by menual clicking
 laborClick.addEventListener("click",()=>{
      player.count += 1;
-counter.innerHTML =   "Bugette Created: "+ player.count;
+counter.innerHTML =  playerName + " You have created: "+ player.count + " Baguettes!";
 
 })
 //Delte the credit
@@ -66,7 +86,7 @@ location.reload()
 ///////bonus 1/////////
 bonus1.addEventListener("click",()=>{
     if (player.count>=price1){
-        message.innerHTML = "You just got yourself- "+speed1*100+"% speed advantge "
+        message.innerHTML = "New employers are coming and they will fast the production by "+speed1*100+"%! "
         player.count = player.count-price1;
   
         clearInterval(interval);
@@ -80,13 +100,13 @@ bonus1.addEventListener("click",()=>{
             message.innerHTML = "";
         }, 2000);
             }else{
-                message.innerHTML = "Not enough credit!"
+                message.innerHTML = "Not enough baguettes!"
             }
 })
 ///////bonus 2/////////
 bonus2.addEventListener("click",()=>{
     if (player.count>=price2){
-        message.innerHTML = "You just got yourself- "+speed2*100+"% speed advantge "
+        message.innerHTML = "New employers are coming and they will fast the production by "+speed2*100+"%! "
 
         player.count = player.count-price2;
         console.log(player.count);
@@ -99,16 +119,16 @@ bonus2.addEventListener("click",()=>{
         }, 2000);
 
             }else{
-                message.innerHTML = "Not enough credit!"
+                message.innerHTML = "Not enough baguettes!"
             }
 })
 ///////bonus 3/////////
 bonus3.addEventListener("click",()=>{
     if (player.count>=price3){
-        message.innerHTML = "You just got yourself- "+speed3*100+"% speed advantge "
+        message.innerHTML = "New employers are coming and they will fast the production by "+speed3*100+"%! "
 
         player.count = player.count-price3;
-        console.log(player.count);
+        console.log(player.speed);
         clearInterval(interval);
         speedTime(speed3);
        interval =  setInterval(gameLoop,player.speed)
@@ -118,20 +138,26 @@ bonus3.addEventListener("click",()=>{
         }, 2000);
 
         }else{
-            message.innerHTML = "Not enough credit!"
+            message.innerHTML = "Not enough baguettes!"
         }  
     
     
 })
 
-
 //keep update the value with 1 point increacment
 function gameLoop(){
-player.count += 1;
-counter.innerHTML = "Baguettes Created: "+ player.count;
-// localStorage.setItem('count', player.count.toString());
-// localStorage.setItem(playerName, JSON.stringify(player));
-localStorage.setItem(playerName, JSON.stringify(player));
+    //control the music speed as the speed of the game increase
+    let musicSpeed = Math.min(2, 1 + (1000 - player.speed) / 1000)
+    music.playbackRate = musicSpeed;
+    player.count += 1;
+    
+    counter.innerHTML = playerName + " You have created: "+ player.count + " Baguettes!";
+    // localStorage.setItem('count', player.count.toString());
+    // localStorage.setItem(playerName, JSON.stringify(player));
+    localStorage.setItem(playerName, JSON.stringify(player));
+    console.log(musicSpeed);
+    
+
 
 }
 

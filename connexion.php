@@ -2,12 +2,14 @@
 // require_once("classes/User.php");
 
 require_once("header.php");
+if (isset($_SESSION["user"])) {
+    header("location: clicker.php");
+}
 ?>
 
 <body>
     <!-- //////////////////connexion\\\\\\\\\\\\\\\\\\\\\ -->
     <div class="section connection_form">
-
         <form id="connexion">
             <h2>Sign in!</h2>
             <h3 id="conMsg"></h3>

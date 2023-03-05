@@ -33,12 +33,21 @@ require_once("classes/User.php");
     <nav>
         <ul>
             <!-- <a href="todolist.php">To Do List</a> -->
-            <h1>Le Boulanger</h1>
-            <a href="clicker.php">clicker</a>
 
-            <a href="connexion.php">connect</a>
-            <a href="index.php">Sign Up</a>
+            <a href="index.php">
+                <h1>Le Boulanger</h1>
+            </a>
+            <?php if (!isset($_SESSION["user"])) { ?>
+                <a href="connexion.php">connect</a>
+                <a href="index.php">Sign Up</a>
 
+            <?php
+            } ?>
+            <?php if (isset($_SESSION["user"])) { ?>
+
+                <a href="clicker.php">clicker</a>
+            <?php
+            } ?>
 
             <div>
                 <?php if (isset($_SESSION["user"])) { ?>
