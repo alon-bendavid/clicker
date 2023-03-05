@@ -1,16 +1,19 @@
 //music interactions
+
 const music = document.getElementById('audio');
 
 const stopSound = document.getElementById("stopSound");
 const startSound = document.getElementById("startSound");
+music.play();
 startSound.addEventListener("click",()=>{
-    music.play();
     startSound.style.display = 'none';
     stopSound.style.display = 'block';
+    music.pause();
 
 })
 stopSound.addEventListener("click",()=>{
-    music.pause();
+    music.play();
+
     stopSound.style.display = 'none';
     startSound.style.display = 'block';
 
@@ -147,7 +150,7 @@ bonus3.addEventListener("click",()=>{
 //keep update the value with 1 point increacment
 function gameLoop(){
     //control the music speed as the speed of the game increase
-    let musicSpeed = Math.min(2, 1 + (1000 - player.speed) / 1000)
+    let musicSpeed = Math.min(2, 1 + (1000 - player.speed) / 2000)
     music.playbackRate = musicSpeed;
     player.count += 1;
     
